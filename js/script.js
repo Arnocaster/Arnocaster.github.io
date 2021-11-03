@@ -1,1 +1,1 @@
-console.log("test");
+document.getElementById('main').appendChild(htmlConstructor());
