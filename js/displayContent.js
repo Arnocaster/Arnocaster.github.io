@@ -37,6 +37,7 @@ function mainConstructor(){
         // img singleYear__cover
         let singleYearCoverElt = document.createElement('div');
         singleYearCoverElt.classList.add('singleYear','singleYear__cover');
+        singleYearCoverElt.textContent = yearsArray[thisYear].year;
         //On push singleYear__container dans singleYearElt
         singleYearElt.appendChild(singleYearCoverElt);
 
