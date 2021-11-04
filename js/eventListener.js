@@ -32,7 +32,7 @@ const listeners =  {
     },
     toggleScroll : function(listenArea,eltToScroll){
         listenArea.addEventListener('wheel',function(){
-            let scrollPx = 150;
+            let scrollPx = 100;
             if (event.deltaY > 0){
                 eltToScroll.scrollLeft += scrollPx;
             } else if (event.deltaY < 0){
