@@ -1,19 +1,26 @@
 const listeners =  {
     init : function(){
         listeners.mainListener();
-        listeners.asideListener();
+        //listeners.asideListener();
     },
     mainListener : function(){
-        const singleYearElt = document.querySelectorAll('.singleYear__container');
+        const singleYearElt = document.querySelectorAll('.conferences__container');
         for (let thisYear of singleYearElt){
             // console.log(thisYear);
             thisYear.addEventListener('mouseenter', function(){
-                let listenArea = event.target;
-                let eltToScroll = event.target.querySelector('.conferences__container');
-                listeners.toggleScroll(listenArea,eltToScroll,true);
+                document.body.style.overflowY = "hidden";
+                event.target.style.overflowX = "scroll";
+                listeners.toggleScroll(event.target,event.target);
+            });
+
+            thisYear.addEventListener('mouseleave', function(){
+                document.body.style.overflowY = "scroll";
+                event.target.style.overflowX = "hidden";
+                listeners.toggleScroll(event.target,event.target);
             });
         }
     },
+    // FONCTION SUPPRIME LE SCOLL DU BODY AU HOVER DE ASIDE
     asideListener : function(){
         document.getElementById('aside').addEventListener('mouseenter', () => {
             document.body.style.overflowY = "scroll";
@@ -25,10 +32,11 @@ const listeners =  {
     },
     toggleScroll : function(listenArea,eltToScroll){
         listenArea.addEventListener('wheel',function(){
+            let scrollPx = 150;
             if (event.deltaY > 0){
-                eltToScroll.scrollLeft += 200;
+                eltToScroll.scrollLeft += scrollPx;
             } else if (event.deltaY < 0){
-                eltToScroll.scrollLeft -= 200;
+                eltToScroll.scrollLeft -= scrollPx;
             } else {
                 console.log("possible un mousewheel neutre?");
             }
