@@ -33,9 +33,9 @@ const listeners =  {
     toggleScroll : function(listenArea,eltToScroll){
         listenArea.addEventListener('wheel',function(){
             let scrollPx = 100;
-            if (event.deltaY > 0){
+            if (event.deltaY > 0 || Event.deltaX>0){
                 eltToScroll.scrollLeft += scrollPx;
-            } else if (event.deltaY < 0){
+            } else if (event.deltaY < 0 || Event.deltaY<0){
                 eltToScroll.scrollLeft -= scrollPx;
             } else {
                 console.log("possible un mousewheel neutre?");
