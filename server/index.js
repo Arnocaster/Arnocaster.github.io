@@ -15,11 +15,17 @@ io.on("connection",(socket) => {
   console.log(`Connection with id : ${socket.id}`);
   world.addPlayer(socket);
 
+   socket.on("updatePlayer",(obj)=>{
+     world.updatePlayer(obj);
+   });
+
   socket.on("disconnect", (reason) => {
     console.log(`Disconnection with id : ${socket.id} because of : ${reason}`);
     world.removePlayer(socket);
   });
 });
+
+
 
 //Init World;
 const world = new World(io);

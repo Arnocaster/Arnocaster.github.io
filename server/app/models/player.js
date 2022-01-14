@@ -6,8 +6,11 @@ class Player {
     this.position = {
       x : parseInt(Math.random()*400),
       y : parseInt(Math.random()*400),
-      angle : parseInt(Math.PI),
+      angle : Math.PI,
+      speed : 1,
+      speed_rotation : 0.1,
     }
+    this.color = `rgb(${Math.random()*255}, ${Math.random()*255},${Math.random()*255})`
   }
 }
 
