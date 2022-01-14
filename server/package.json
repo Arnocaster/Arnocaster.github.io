@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "socket.io": "^4.4.1"
+  },
+  "scripts": {
+    "start": "node-dev index.js --no-notify"
+  }
+}
