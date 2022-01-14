@@ -125,7 +125,7 @@ const app = {
 
 document.addEventListener('DOMContentLoaded', () => {
   //Socket.io Managment => Maybe a module later
-  const socket = io("109.14.79.91:3000");
+  const socket = io("109.14.79.91:3003");
 
   socket.on('InitWorld', (obj) => {
     app.playerId = socket.id;
