@@ -1,4 +1,4 @@
-const setDots = (scroll)=>{
+const setDots = ()=>{
     if (document.querySelector('.aside__y--canvas') === null){  
     const asideElt = document.querySelector('.aside__container');
     const canvas = document.createElement('canvas');
@@ -11,33 +11,46 @@ const setDots = (scroll)=>{
     canvas.width = asideElt.offsetWidth;
     canvas.height = asideElt.offsetHeight;
     //GET DOM DOTS
-    const dotElts = document.querySelectorAll('.aside__y--dot');
-    const markerOffsetLeft = dotElts[0].offsetLeft + (dotElts[0].offsetWidth/2) ;
-    console.log(scroll);
-    const yearsCont = document.querySelectorAll('.singleYear__container')
-    console.log(yearsCont);
+    const contElts = document.querySelectorAll('.aside__y--dot-container');
+    //SCROLL
+    const scroll = window.scrollY;
+    const yearsCont = document.querySelectorAll('.singleYear__container');
+    console.log(Array.from(yearsCont)[0].offsetTop > scroll,Array.from(yearsCont)[0].offsetTop , scroll);
+    const yearFocusInd = Array.from(yearsCont).findIndex(yearElt => yearElt.offsetTop >= scroll);
+    console.log(yearFocusInd);
     //DRAW
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    dotElts.forEach((dotElt,index) =>{
+    //Setup :
+    contElts.forEach((contElt,index) =>{
+
+        const dotElt = contElt.querySelector('.aside__y--dot');
+        const yearElt = contElt.querySelector('.aside__y--text');
+
+        if (index === yearFocusInd) {yearElt.classList.add('aside__y--text-show')}
+        else {yearElt.classList.remove('aside__y--text-show')}
+
+        const leftLineOffset = dotElt.offsetLeft + (dotElt.offsetWidth/2);
+        console.log(contElt,dotElt,yearElt);
+        // Line
+        if (index < contElts.length -1){
         ctx.lineWidth = 3;
         ctx.lineCap = "round";
-        dotElt.offsetLeft = dotElts[0].offsetLeft;
-        if (index < dotElts.length -1){
         ctx.beginPath();
-        ctx.moveTo(markerOffsetLeft,dotElt.offsetTop+dotElt.offsetHeight/2);
-        ctx.lineTo(markerOffsetLeft,dotElts[index+1].offsetTop+dotElt.offsetHeight/2);
+        ctx.moveTo(leftLineOffset,contElt.offsetTop+contElt.offsetHeight/2);
+        ctx.lineTo(leftLineOffset,contElts[index+1].offsetTop+contElt.offsetHeight/2);
         ctx.stroke();
         }
-
-        ctx.lineWidth = 3;
-        ctx.lineCap = "round";
-        ctx.beginPath();
-        ctx.arc(markerOffsetLeft + dotElt.offsetWidth/2.5,
-                dotElt.offsetTop + (dotElt.offsetHeight/2),
-                (dotElt.offsetHeight/2)+2,
-                Math.PI*-0.4,Math.PI*0.4);
-        ctx.stroke();
+        // //Marker
+        // const 
+        // ctx.lineWidth = 3;
+        // ctx.lineCap = "round";
+        // ctx.beginPath();
+        // ctx.arc(markerOffsetLeft + dotElt.offsetWidth/2.5,
+        //         dotElt.offsetTop + (dotElt.offsetHeight/2),
+        //         (dotElt.offsetHeight/2)+2,
+        //         Math.PI*-0.4,Math.PI*0.4);
+        // ctx.stroke();
     });
     
 }
