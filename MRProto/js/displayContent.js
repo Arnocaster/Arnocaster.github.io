@@ -120,12 +120,27 @@ function asideConstructor(){
     asideHtmlElt.classList.add('aside__container');
 
     for (let thisYear = 0 ; thisYear < yearsArray.length; thisYear++){
-        let thisLinkElt = document.createElement('a');
-        thisLinkElt.classList.add('aside__link');
-        thisLinkElt.setAttribute('href',`#${yearsArray[thisYear].year}`);
-        thisLinkElt.textContent = yearsArray[thisYear].year;
-        // On pousse le lien dans asideHtmlEls
-        asideHtmlElt.appendChild(thisLinkElt);
+        const dotContainer = document.createElement('div');
+        dotContainer.classList.add('aside__y--dot-container');
+        const dot = document.createElement('div');
+        dot.classList.add('aside__y--dot');
+
+        const dotMarker = document.createElement('div');
+        dotMarker.classList.add('aside__y--dotMarker');
+
+        const dotText = document.createElement('p');
+        dotText.classList.add('aside__y--text');
+        dotText.innerText = yearsArray[thisYear].year;
+
+
+    //     let thisLinkElt = document.createElement('a');
+    //     thisLinkElt.classList.add('aside__link');
+    //     thisLinkElt.setAttribute('href',`#${yearsArray[thisYear].year}`);
+    //     thisLinkElt.textContent = yearsArray[thisYear].year;
+    //     // On pousse le lien dans asideHtmlEls
+        dotContainer.appendChild(dot);
+        dotContainer.appendChild(dotText);
+         asideHtmlElt.appendChild(dotContainer);
         
     }
    

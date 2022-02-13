@@ -4,6 +4,8 @@ const listeners =  {
         //listeners.asideListener();
     },
     mainListener : function(){
+        window.addEventListener('resize', setDots);
+        document.addEventListener('wheel',(e)=>{setDots(e.pageY)});
         const singleYearElt = document.querySelectorAll('.conferences__container');
         for (let thisYear of singleYearElt){
             // console.log(thisYear);
@@ -40,7 +42,7 @@ const listeners =  {
             } else {
                 console.log("possible un mousewheel neutre?");
             }
-            console.log(event);
+            //console.log(event);
         });
         
     }
