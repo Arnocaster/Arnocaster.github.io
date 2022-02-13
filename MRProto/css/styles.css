@@ -145,6 +145,8 @@ body{
     justify-content: center;
     align-items: center;
     align-content: space-around;
+    flex-grow: 1;
+    transition: all 0.75s;
 }
 
 .aside__y--dot{
@@ -158,16 +160,21 @@ body{
 
 
 .aside__y--text{
-    opacity: 0;
+    opacity: 0.4;
     text-align: center;
     width: 4rem;
     font-size: 1rem;
     padding: 0.2rem 0.75rem;
     border-radius: 1.25rem;
-    border : 1px solid black;
+    transition: all 0.75s;
+    
 }
 
+.aside__y--dot-container-focus{
+flex-grow: 3;
+}
 .aside__y--text-show {
+    border : 1px solid black;
     opacity: 1;
 }
 

@@ -27,20 +27,25 @@ const setDots = ()=>{
         const dotElt = contElt.querySelector('.aside__y--dot');
         const yearElt = contElt.querySelector('.aside__y--text');
 
-        if (index === yearFocusInd) {yearElt.classList.add('aside__y--text-show')}
-        else {yearElt.classList.remove('aside__y--text-show')}
+        if (index === yearFocusInd) {
+            yearElt.classList.add('aside__y--text-show');
+            contElt.classList.add('aside__y--dot-container-focus');
+        }
+        else {
+            yearElt.classList.remove('aside__y--text-show');
+            contElt.classList.remove('aside__y--dot-container-focus');}
 
         const leftLineOffset = dotElt.offsetLeft + (dotElt.offsetWidth/2);
         console.log(contElt,dotElt,yearElt);
         // Line
-        if (index < contElts.length -1){
-        ctx.lineWidth = 3;
-        ctx.lineCap = "round";
-        ctx.beginPath();
-        ctx.moveTo(leftLineOffset,contElt.offsetTop+contElt.offsetHeight/2);
-        ctx.lineTo(leftLineOffset,contElts[index+1].offsetTop+contElt.offsetHeight/2);
-        ctx.stroke();
-        }
+        // if (index < contElts.length -1){
+        // ctx.lineWidth = 3;
+        // ctx.lineCap = "round";
+        // ctx.beginPath();
+        // ctx.moveTo(leftLineOffset,contElt.offsetTop+contElt.offsetHeight/2);
+        // ctx.lineTo(leftLineOffset,contElts[index+1].offsetTop+contElt.offsetHeight/2);
+        // ctx.stroke();
+        // }
         // //Marker
         // const 
         // ctx.lineWidth = 3;
