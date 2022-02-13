@@ -5,7 +5,8 @@ const listeners =  {
     },
     mainListener : function(){
         window.addEventListener('resize', setDots);
-        document.addEventListener('wheel',(e)=>{setDots()});
+        document.addEventListener('scroll',(e)=>{setDots()});
+            document.addEventListener('animationstart',()=>{console.log('start');setDots()});
         const singleYearElt = document.querySelectorAll('.conferences__container');
         for (let thisYear of singleYearElt){
             // console.log(thisYear);

@@ -171,13 +171,26 @@ body{
 }
 
 .aside__y--dot-container-focus{
-flex-grow: 3;
+    flex-grow: 3;
 }
 .aside__y--text-show {
     border : 1px solid black;
     opacity: 1;
 }
 
+.lineDom{
+    display: block;
+    height: 100%;
+    border: 3px solid red;
+    transition: all 0.75s;
+}
+
+.svg{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 .aside__y--canvas{
     position: absolute;

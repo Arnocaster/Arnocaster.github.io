@@ -132,6 +132,9 @@ function asideConstructor(){
         dotText.classList.add('aside__y--text');
         dotText.innerText = yearsArray[thisYear].year;
 
+        const lineDom = document.createElement('div');
+        lineDom.classList.add('lineDom');
+
 
     //     let thisLinkElt = document.createElement('a');
     //     thisLinkElt.classList.add('aside__link');
